@@ -103,8 +103,6 @@ module.exports = async (conn, msg, m, setting, store) => {
 
         //PESAN
         conn.readMessages([msg.key]);
-        if (isGroup) { console.log(from); }
-        else {
             switch (command) {
                 case 'menfess':
                     if (isGroup) return reply('Fitur ini khusus chat pribadi!')
@@ -155,6 +153,7 @@ module.exports = async (conn, msg, m, setting, store) => {
                     reply(`Sukses mengirim pesan Rahasia ke nomer tersebut, silahkan tunggu jawaban dari penerima pesan, jika sudah dibalas bot akan otomatis mengirim balasannya!`)
                     break
                 case  'balas':
+                    if (isGroup) return reply('Fitur ini khusus chat pribadi!')
                     if (isChat(sender, rom) === undefined) return 
                     if (isChat(sender, rom).dari === sender) return reply(`lu yang kirim pesan, lol.`)
                     var data = isChat(sender, rom)
@@ -174,12 +173,13 @@ module.exports = async (conn, msg, m, setting, store) => {
                     break
 
                 case 'stopchat':
+                    if (isGroup) return reply('Fitur ini khusus chat pribadi!')
                     if (isChat(sender, rom) === undefined) return reply('Tidak ada pesan.')
                     hapusChat(sender, rom, './database/menfess.json')
                     reply('*_Done..._*')
                     break
             }
-        }
+        
 
     } catch (error) {
         console.log(error);
