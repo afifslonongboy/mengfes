@@ -5,10 +5,11 @@ exports.menu = async (conn, msg, from, jam, tanggal, runtime, prefix) => {
  *Tanggal* : _${tanggal}_
  *Runtime* : _${runtime(process.uptime())}_
  
-╭─「 *MENU GRUP* 」
+╭─「 *MENU* 」
 │↦  ${prefix}p
 │↦  ${prefix}hidetag/h
 │↦  ${prefix}tagall
+│↦  ${prefix}menfess
 ╰─────────⭓
 
 ╭─「 *MENU CEKID* 」
